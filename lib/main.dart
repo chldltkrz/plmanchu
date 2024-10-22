@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'PlmanchuIntroducing',
+      // theme 은 설정 안해주나요?
       home: IntroPage(),
     );
   }
