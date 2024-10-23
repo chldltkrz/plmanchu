@@ -28,7 +28,7 @@ class specA extends StatelessWidget {
           Container(
             margin:
                 EdgeInsets.symmetric(vertical: 16.0), // Space around the image
-            height: 200.0, // Adjust height as needed
+            height: 450.0, // Adjust height as needed
             width: double.infinity, // Full width
             decoration: BoxDecoration(
               color: Colors.grey[300], // Placeholder color for the image
@@ -91,11 +91,13 @@ class specA extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 100,
+                    vertical: 15), // Increased horizontal padding
                 backgroundColor: Colors.black,
               ),
               child: Text(
-                'More Details',
+                'MORE',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
