@@ -47,7 +47,7 @@ class specA extends StatelessWidget {
                       child: Text(
                         memberInfo.name, // Display member's name
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                            fontSize: 36, fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(width: 8), // Space between name and MBTI
@@ -69,7 +69,7 @@ class specA extends StatelessWidget {
           Spacer(), // Pushes the button to the bottom
           Padding(
             padding: const EdgeInsets.only(
-                bottom: 40.0), // Space from the bottom (adjustable)
+                bottom: 80.0), // Space from the bottom (adjustable)
             child: ElevatedButton(
               onPressed: () {
                 // Navigate to detailed description page
@@ -78,7 +78,18 @@ class specA extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => specA_1()),
                 );
               },
-              child: Text('좀 더 자세히 알고싶다면?'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                backgroundColor: Colors.black,
+              ),
+              child: Text(
+                'More Details',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ],

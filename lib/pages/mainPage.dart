@@ -28,18 +28,19 @@ class Mainpage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '오늘의 추천',
+              "오늘의 카드",
               style: TextStyle(
-                fontSize: 40,
+                fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8), // 첫 번째와 두 번째 타이틀 사이 간격
             Text(
-              '알고싶은 카드를 선택해보세요',
+              '궁금한 카드를 클릭해보세요!',
               style: TextStyle(
-                fontSize: 24,
-                color: Colors.grey[600],
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
               ),
             ),
             SizedBox(height: 40), // 두 번째 타이틀과 그리드 사이 간격
