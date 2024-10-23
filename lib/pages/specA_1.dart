@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
+import 'package:plmanchu/pages/specA.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class specA_1 extends StatelessWidget {
@@ -13,6 +14,15 @@ class specA_1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.off(specA(
+              memberInfo: memberInfo,
+              index: index,
+            )); // 뒤로 가기 기능
+          },
+        ),
         title: Text('Detail'),
       ),
       body: Padding(

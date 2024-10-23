@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
+import 'package:plmanchu/pages/intro.dart';
 import 'package:plmanchu/pages/specA.dart';
 
 class Mainpage extends StatelessWidget {
@@ -14,7 +15,7 @@ class Mainpage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pop(); // 뒤로 가기 기능
+            Get.off(IntroPage()); // 뒤로 가기 기능
           },
         ),
         title: Text('메인 페이지'),

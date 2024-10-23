@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:plmanchu/info/memberInfo.dart';
+import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA_1.dart';
 
 class specA extends StatelessWidget {
@@ -10,7 +12,14 @@ class specA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(memberInfo.name)),
+      appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Get.off(Mainpage()); // 뒤로 가기 기능
+            },
+          ),
+          title: Text(memberInfo.name)),
       body: Column(
         mainAxisAlignment:
             MainAxisAlignment.start, // Align items from the start
