@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plmanchu/pages/spec1.dart';
+import 'package:plmanchu/pages/spec2.dart';
+import 'package:plmanchu/pages/spec3.dart';
+import 'package:plmanchu/pages/spec4.dart';
+import 'package:plmanchu/pages/elevate_button.dart';
 
 class Mainpage extends StatelessWidget {
   const Mainpage({super.key});

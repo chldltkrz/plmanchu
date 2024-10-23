@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:plmanchu/pages/spec2.dart';
 
 class spec1 extends StatelessWidget {
+  const spec1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
