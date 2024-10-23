@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
+import 'package:plmanchu/info/radarController.dart';
 import 'package:plmanchu/pages/intro.dart';
 import 'package:plmanchu/pages/specA.dart';
 
@@ -10,6 +11,8 @@ class Mainpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final radarController = Get.find<Radarcontroller>();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -59,9 +62,9 @@ class Mainpage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => specA(
-                                      memberInfo: mI,
-                                      index: index,
-                                    )),
+                                    memberInfo: mI,
+                                    index: index,
+                                    radarController: radarController)),
                           );
                         },
                         child: Stack(children: [

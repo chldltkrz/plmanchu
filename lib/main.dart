@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/pages/intro.dart';
+import 'package:plmanchu/info/radarController.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Membercontroller(), permanent: true);
+    Get.put(Radarcontroller());
     return GetMaterialApp(
       title: 'PlmanchuIntroducing',
       home: IntroPage(),
