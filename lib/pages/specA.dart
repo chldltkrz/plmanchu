@@ -11,23 +11,75 @@ class specA extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(memberInfo.name)),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment:
+            MainAxisAlignment.start, // Align items from the start
         children: [
-          Text(
-            '이름, MBTI, 한줄포부 등 간략한 설명',
-            style: TextStyle(fontSize: 18),
-            textAlign: TextAlign.center,
+          // Placeholder for the image
+          Container(
+            margin:
+                EdgeInsets.symmetric(vertical: 16.0), // Space around the image
+            height: 200.0, // Adjust height as needed
+            width: double.infinity, // Full width
+            decoration: BoxDecoration(
+              color: Colors.grey[300], // Placeholder color for the image
+              borderRadius: BorderRadius.circular(8.0), // Rounded corners
+            ),
+            child: Center(
+                child: Text('사진이 들어갈 공간', style: TextStyle(fontSize: 20))),
           ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // 더 상세한 설명 페이지로 이동
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => specA_1()),
-              );
-            },
-            child: Text('좀 더 자세히 알고싶다면?'),
+          // Gray box with text
+          Container(
+            padding: EdgeInsets.all(16.0),
+            margin: EdgeInsets.symmetric(horizontal: 16.0), // Space on sides
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Column(
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, // Align text to the left
+              children: [
+                Row(
+                  mainAxisAlignment:
+                      MainAxisAlignment.spaceBetween, // Align name and MBTI
+                  children: [
+                    Expanded(
+                      child: Text(
+                        memberInfo.name, // Display member's name
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(width: 8), // Space between name and MBTI
+                    Text(
+                      memberInfo.MBTI, // Display MBTI
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8), // Space between rows
+                Text(
+                  memberInfo.introduce, // Display one line description
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                ),
+              ],
+            ),
+          ),
+          Spacer(), // Pushes the button to the bottom
+          Padding(
+            padding: const EdgeInsets.only(
+                bottom: 40.0), // Space from the bottom (adjustable)
+            child: ElevatedButton(
+              onPressed: () {
+                // Navigate to detailed description page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => specA_1()),
+                );
+              },
+              child: Text('좀 더 자세히 알고싶다면?'),
+            ),
           ),
         ],
       ),
