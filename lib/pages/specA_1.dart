@@ -10,7 +10,6 @@ class specA_1 extends StatelessWidget {
   MemberInfo memberInfo;
   int index;
   specA_1({super.key, required this.memberInfo, required this.index});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +34,7 @@ class specA_1 extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: const Color.fromRGBO(238, 238, 238, 1),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Column(
@@ -81,55 +80,47 @@ class specA_1 extends StatelessWidget {
             ),
             SizedBox(height: 30), // Add space between sections and buttons
             // Buttons at the bottom
-            Center(
-              child: Column(
-                mainAxisAlignment:
-                    MainAxisAlignment.center, // Center the buttons vertically
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.find<Membercontroller>().changeLike(index);
-                      // get to main page
-                      Get.to(() => Mainpage());
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 100,
-                          vertical: 15), // Increased horizontal padding
-                      backgroundColor: Colors.blue,
-                    ),
-                    child: Text(
-                      'LIKE',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Get.find<Membercontroller>().changeLike(index);
+                    // get to main page
+                    Get.to(() => Mainpage());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: Text(
+                    '좋아요',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 16), // Space between buttons
-                  ElevatedButton(
-                    onPressed: () async {
-                      final url = Uri.parse(memberInfo.blog);
-                      await launchUrl(url);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 100,
-                          vertical: 15), // Increased horizontal padding
-                      backgroundColor: Colors.black,
-                    ),
-                    child: Text(
-                      'BLOG',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    final url = Uri.parse(memberInfo.blog);
+                    await launchUrl(url);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    '블로그',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(height: 80), // Space between buttons and bottom
           ],
