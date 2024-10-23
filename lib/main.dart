@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     Get.put(Membercontroller());
     return GetMaterialApp(
       title: 'PlmanchuIntroducing',
-      // theme 은 설정 안해주나요?
       home: IntroPage(),
     );
   }
