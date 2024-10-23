@@ -3,8 +3,9 @@ import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/specA_1.dart';
 
 class specA extends StatelessWidget {
-  final MemberInfo memberInfo;
-  const specA({super.key, required this.memberInfo});
+  MemberInfo memberInfo;
+  int index;
+  specA({super.key, required this.memberInfo, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +76,9 @@ class specA extends StatelessWidget {
                 // Navigate to detailed description page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => specA_1()),
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          specA_1(memberInfo: memberInfo, index: index)),
                 );
               },
               style: ElevatedButton.styleFrom(

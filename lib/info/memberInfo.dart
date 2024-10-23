@@ -8,6 +8,7 @@ class MemberInfo {
   String targetApp; //  만들고자하는앱
   String introduce; // 자기소개
   String radarChart; // 레이더차트
+  String blog; // 블로그
   bool isLiked = false; // 좋아요 여부
 
   MemberInfo({
@@ -20,5 +21,6 @@ class MemberInfo {
     required this.targetApp,
     required this.introduce,
     required this.radarChart,
+    required this.blog,
   });
 }

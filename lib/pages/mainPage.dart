@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
@@ -61,6 +59,7 @@ class Mainpage extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => specA(
                                       memberInfo: mI,
+                                      index: index,
                                     )),
                           );
                         },

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:plmanchu/info/memberController.dart';
+import 'package:plmanchu/info/memberInfo.dart';
+import 'package:plmanchu/pages/mainPage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class specA_1 extends StatelessWidget {
-  const specA_1({super.key});
-
+  MemberInfo memberInfo;
+  int index;
+  specA_1({super.key, required this.memberInfo, required this.index});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +41,12 @@ class specA_1 extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _buildKeywordBox('MBTI', Colors.blue),
-                      _buildKeywordBox('취미', Colors.red),
-                      _buildKeywordBox('전공', Colors.yellow),
+                      _buildKeywordBox(memberInfo.MBTI, Colors.blue),
+                      _buildKeywordBox(
+                          memberInfo.hobbies.toString().substring(
+                              1, memberInfo.hobbies.toString().length - 1),
+                          Colors.red),
+                      _buildKeywordBox(memberInfo.major, Colors.yellow),
                     ],
                   ),
                 ],
@@ -50,9 +59,12 @@ class specA_1 extends StatelessWidget {
                 crossAxisAlignment:
                     CrossAxisAlignment.start, // Start from the left
                 children: [
-                  _buildSection('경력', '아무거나'),
+                  _buildSection(
+                      '경력',
+                      memberInfo.careers.toString().substring(
+                          1, memberInfo.careers.toString().length - 1)),
                   Divider(color: Colors.grey), // Thin gray line
-                  _buildSection('만들고자 하는 앱', '아무거나'),
+                  _buildSection('만들고자 하는 앱', memberInfo.targetApp),
                 ],
               ),
             ),
@@ -63,7 +75,9 @@ class specA_1 extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Action for '좋아요' button
+                    Get.find<Membercontroller>().changeLike(index);
+                    // get to main page
+                    Get.to(() => Mainpage());
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
@@ -79,8 +93,9 @@ class specA_1 extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    // Action for '블로그' button
+                  onPressed: () async {
+                    final url = Uri.parse(memberInfo.blog);
+                    await launchUrl(url);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
