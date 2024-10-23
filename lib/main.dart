@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Membercontroller());
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'PlmanchuIntroducing',
       // theme 은 설정 안해주나요?
       home: IntroPage(),

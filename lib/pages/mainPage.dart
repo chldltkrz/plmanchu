@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
+import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/specA.dart';
 
 class Mainpage extends StatelessWidget {
@@ -48,20 +51,42 @@ class Mainpage extends StatelessWidget {
                 children: [
                   ...List<Widget>.generate(
                       Get.find<Membercontroller>().getMemberLength(), (index) {
+                    MemberInfo mI =
+                        Get.find<Membercontroller>().getMember(index);
                     return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => specA(
-                                    memberInfo: Get.find<Membercontroller>()
-                                        .getMember(index),
-                                  )),
-                        );
-                      },
-                      child: Image.asset(
-                          Get.find<Membercontroller>().getMember(index).image),
-                    );
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => specA(
+                                      memberInfo: mI,
+                                    )),
+                          );
+                        },
+                        child: Stack(children: [
+                          Image.asset(mI.image),
+                          Positioned(
+                              bottom: 0,
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              //Opacity GetBuilder로 감싸기
+                              //Obx -> GetBuilde대신 사용하기 편할수 있음
+                              child: GetBuilder(
+                                init: Get.find<Membercontroller>(),
+                                builder: (controller) =>
+                                    controller.getLiked(index)
+                                        ? Opacity(
+                                            opacity: 0.3,
+                                            child: const Icon(
+                                              Icons.thumb_up,
+                                              size: 80,
+                                              color: Colors.blue,
+                                            ),
+                                          )
+                                        : Container(),
+                              ))
+                        ]));
                   }),
                 ],
               ),

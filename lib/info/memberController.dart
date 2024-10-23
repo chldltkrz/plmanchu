@@ -25,8 +25,19 @@ class Membercontroller extends GetxController {
         introduce: "잘부탁드립니다",
         radarChart: 'lib/assets/images/radarChart.png'),
     MemberInfo(
-      name: "김윤서",
+      name: "김시은",
+      MBTI: "ENTJ",
       image: 'lib/assets/images/3.png',
+      hobbies: ["헬스", "수영", "보드게임"],
+      major: "전자공학과",
+      careers: ["반도체 설계 엔지니어"],
+      targetApp: "언어교환",
+      introduce: "잘부탁드립니다",
+      radarChart: 'lib/assets/images/radarChart.png',
+    ),
+    MemberInfo(
+      name: "김윤서",
+      image: 'lib/assets/images/4.png',
       MBTI: "EINFJ",
       hobbies: ["영화감상", "독서"],
       major: "디자인",
@@ -43,5 +54,14 @@ class Membercontroller extends GetxController {
 
   int getMemberLength() {
     return members.length;
+  }
+
+  bool getLiked(int index) {
+    return members[index].isLiked;
+  }
+
+  void changeLike(int index) {
+    members[index].isLiked = !members[index].isLiked;
+    update();
   }
 }

@@ -24,8 +24,8 @@ class specA extends StatelessWidget {
               color: Colors.grey[300], // Placeholder color for the image
               borderRadius: BorderRadius.circular(8.0), // Rounded corners
             ),
-            child: Center(
-                child: Text('사진이 들어갈 공간', style: TextStyle(fontSize: 20))),
+            child:
+                Center(child: Image.asset(memberInfo.image)), // Display image
           ),
           // Gray box with text
           Container(

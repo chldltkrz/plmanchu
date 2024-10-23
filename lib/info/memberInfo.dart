@@ -8,6 +8,7 @@ class MemberInfo {
   String targetApp; //  만들고자하는앱
   String introduce; // 자기소개
   String radarChart; // 레이더차트
+  bool isLiked = false; // 좋아요 여부
 
   MemberInfo({
     required this.name,
