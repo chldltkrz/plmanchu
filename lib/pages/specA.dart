@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/specA_1.dart';
 
 class specA extends StatelessWidget {
-  const specA({super.key});
+  final MemberInfo memberInfo;
+  const specA({super.key, required this.memberInfo});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('About...'),
-      ),
+      appBar: AppBar(title: Text(memberInfo.name)),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

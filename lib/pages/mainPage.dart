@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/pages/specA.dart';
 
 class Mainpage extends StatelessWidget {
@@ -44,17 +46,21 @@ class Mainpage extends StatelessWidget {
                 crossAxisSpacing: 10, // 그리드 칸 사이 가로 간격
                 mainAxisSpacing: 10, // 그리드 칸 사이 세로 간격
                 children: [
-                  ...List<Widget>.generate(4, (index) {
+                  ...List<Widget>.generate(
+                      Get.find<Membercontroller>().getMemberLength(), (index) {
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => specA()),
+                          MaterialPageRoute(
+                              builder: (context) => specA(
+                                    memberInfo: Get.find<Membercontroller>()
+                                        .getMember(index),
+                                  )),
                         );
                       },
-                      child: Image.asset('lib/assets/images/' +
-                          (index + 1).toString() +
-                          '.png'),
+                      child: Image.asset(
+                          Get.find<Membercontroller>().getMember(index).image),
                     );
                   }),
                 ],
