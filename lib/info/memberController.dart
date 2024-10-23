@@ -13,7 +13,7 @@ class Membercontroller extends GetxController {
         careers: ["PM", "블록체인"],
         targetApp: "에어비앤비",
         introduce: "잘부탁드립니다",
-        radarChart: 'lib/assets/images/radarChart.png',
+        radarChart: [1.0, 10.0, 40.0, 90.0, 90.0],
         blog: "https://matthewkang.tistory.com"),
     MemberInfo(
         name: "최이삭",
@@ -24,7 +24,7 @@ class Membercontroller extends GetxController {
         careers: ["클라우드엔지니어", "k8s개발자"],
         targetApp: "당근마켓",
         introduce: "잘부탁드립니다",
-        radarChart: 'lib/assets/images/radarChart.png',
+        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
         blog: "https://teem0.com"),
     MemberInfo(
         name: "김시은",
@@ -35,7 +35,7 @@ class Membercontroller extends GetxController {
         careers: ["반도체 설계 엔지니어"],
         targetApp: "언어교환",
         introduce: "잘부탁드립니다",
-        radarChart: 'lib/assets/images/radarChart.png',
+        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
         blog: "https://scene-inventory.tistory.com"),
     MemberInfo(
         name: "김윤서",
@@ -46,7 +46,7 @@ class Membercontroller extends GetxController {
         careers: ["디자인", "운영관리"],
         targetApp: "Skrr",
         introduce: "잘부탁드립니다",
-        radarChart: 'lib/assets/images/radarChart.png',
+        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
         blog: "https://www.google.com"),
   ];
 
@@ -66,6 +66,10 @@ class Membercontroller extends GetxController {
   // 이 method는 mainPage.dart에서 좋아요 버튼을 사진 위에 띄울때 사용됨
   bool getLiked(int index) {
     return members[index].isLiked;
+  }
+
+  List<double> getRadarChart(int index) {
+    return members[index].radarChart;
   }
 
   // 좋아요 버튼을 누를때 상태를 변화시키는 method

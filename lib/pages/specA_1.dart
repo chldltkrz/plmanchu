@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
+import 'package:plmanchu/pages/radarChart.dart';
 import 'package:plmanchu/pages/specA.dart';
 // URL Launcher 를 사용하기 위해 flutter pub add url_launcher를 실행해주고 import를 추가해줘야한다
 import 'package:url_launcher/url_launcher.dart';
@@ -83,12 +84,56 @@ class specA_1 extends StatelessWidget {
                           1, memberInfo.careers.toString().length - 1)),
                   Divider(color: Colors.grey), // Thin gray line
                   _buildSection('만들고자 하는 앱', memberInfo.targetApp),
+                  Divider(color: Colors.grey),
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    // Use LayoutBuilder inside the Container to make the chart fit to the size
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "능력치 분석",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                            Divider(color: Colors.grey),
+                            Container(
+                              width: constraints.maxWidth *
+                                  0.4, // Set the radar chart to fit 80% of the available width
+                              height: constraints.maxWidth *
+                                  0.4, // Match height to width
+                              child: PentagonRadarChart(
+                                values: memberInfo.radarChart,
+                                labels: ['운', '코딩', '디자인', '끈기', '팀워크'],
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                  Divider(color: Colors.grey), // Thin gray line
+                  // Thin gray line
                 ],
               ),
             ),
-            SizedBox(height: 30), // Add space between sections and buttons
+            SizedBox(height: 30),
+            // Add space between sections and buttons
             // Buttons at the bottom
-            
             Center(
               child: Column(
                 mainAxisAlignment:
