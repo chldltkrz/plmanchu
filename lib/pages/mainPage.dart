@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plmanchu/pages/spec1.dart';
-import 'package:plmanchu/pages/spec2.dart';
-import 'package:plmanchu/pages/spec3.dart';
-import 'package:plmanchu/pages/spec4.dart';
-import 'package:plmanchu/pages/elevate_button.dart';
+import 'package:plmanchu/pages/specA.dart';
 
 class Mainpage extends StatelessWidget {
   const Mainpage({super.key});
@@ -48,10 +44,19 @@ class Mainpage extends StatelessWidget {
                 crossAxisSpacing: 10, // 그리드 칸 사이 가로 간격
                 mainAxisSpacing: 10, // 그리드 칸 사이 세로 간격
                 children: [
-                  Image.asset(''), // 첫 번째 이미지
-                  Image.asset(''), // 두 번째 이미지
-                  Image.asset(''), // 세 번째 이미지
-                  Image.asset(''), // 네 번째 이미지
+                  ...List<Widget>.generate(4, (index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => specA()),
+                        );
+                      },
+                      child: Image.asset('lib/assets/images/' +
+                          (index + 1).toString() +
+                          '.png'),
+                    );
+                  }),
                 ],
               ),
             ),

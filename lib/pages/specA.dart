@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plmanchu/pages/spec2.dart';
+import 'package:plmanchu/pages/specA_1.dart';
 
-class spec1 extends StatelessWidget {
-  const spec1({super.key});
+class specA extends StatelessWidget {
+  const specA({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class spec1 extends StatelessWidget {
               // 더 상세한 설명 페이지로 이동
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => spec2()),
+                MaterialPageRoute(builder: (context) => specA_1()),
               );
             },
             child: Text('좀 더 자세히 알고싶다면?'),
