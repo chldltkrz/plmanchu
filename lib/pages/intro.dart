@@ -5,6 +5,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 인트로에서 Appbar는 뒤로가기가 없어야 하므로 빈 Appbar를 생성
       appBar: AppBar(),
       body: Center(
         child: Column(
@@ -35,6 +36,7 @@ class IntroPage extends StatelessWidget {
             Spacer(),
             ElevatedButton(
               onPressed: () {
+                // 일반적으로 StatelessWidget에서 다른 페이지로 이동할 때는 Navigator.push를 사용할 수 있음
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Mainpage()));
               },

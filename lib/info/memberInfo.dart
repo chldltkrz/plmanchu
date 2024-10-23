@@ -1,3 +1,5 @@
+// 맴버 정보를 담기 위한 클래스 
+// 컨트롤러에서 상태를 관리하기 때문에 여기서 상태관리를 위한 Method는 필요 없음
 class MemberInfo {
   String name; // 이름
   String MBTI; // MBTI

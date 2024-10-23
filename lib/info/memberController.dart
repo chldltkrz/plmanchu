@@ -1,6 +1,7 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 
+// 컨트롤러를 상속받고 여기서 실제 맴버정보를 담은 클래스를 생성하게 된다
 class Membercontroller extends GetxController {
   List<MemberInfo> members = [
     MemberInfo(
@@ -49,18 +50,26 @@ class Membercontroller extends GetxController {
         blog: "https://www.google.com"),
   ];
 
+  // 특정 인덱스의 맴버정보를 가져오는 method
   MemberInfo getMember(int index) {
     return members[index];
   }
 
+  // 맴버의 명수를 return하는 method
+  // 이 method는 mainPage.dart에서 사용됨
+  // mainPage.dart에서는 GridView.count의 children을 생성할 때 사용
   int getMemberLength() {
     return members.length;
   }
 
+  // 좋아요 여부를 return하는 method
+  // 이 method는 mainPage.dart에서 좋아요 버튼을 사진 위에 띄울때 사용됨
   bool getLiked(int index) {
     return members[index].isLiked;
   }
 
+  // 좋아요 버튼을 누를때 상태를 변화시키는 method
+  // 좋아요 누른 다음에 구독자에게 알려주기 위해 update()를 호출
   void changeLike(index) {
     members[index].isLiked = !members[index].isLiked;
     update();

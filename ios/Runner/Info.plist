@@ -45,6 +45,8 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- ios의 외부 인터넷연결을 위해 아래와 같이 https를 추가 해준다, 
+				전화같은경우 tel, 문자의경우 sms를 활성화 해줄 수 있다-->
 	<key>LSApplicationQueriesSchemes</key>
     <array>
       <string>https</string>

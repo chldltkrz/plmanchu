@@ -5,6 +5,7 @@ import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA_1.dart';
 
 class specA extends StatelessWidget {
+  // 인덱스를 받지 않으면 이후 specA_1페이지에서 changeLiked를 사용할 방법이 없음. 그래서 인덱스를 받아서 넘겨줌
   MemberInfo memberInfo;
   int index;
   specA({super.key, required this.memberInfo, required this.index});
@@ -12,6 +13,7 @@ class specA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 역시 Appbar에서 바로 뒤로 페이지로 이동을 위한 Get.off로 변경
       appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
@@ -21,6 +23,8 @@ class specA extends StatelessWidget {
           ),
           title: Text(memberInfo.name)),
       body: Column(
+        // 이전 페이지에서 memberInfo를 받아와서 사용함
+        // 맴버의 각 정보는 . 으로 접근 가능
         mainAxisAlignment:
             MainAxisAlignment.start, // Align items from the start
         children: [
@@ -83,6 +87,7 @@ class specA extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 // Navigate to detailed description page
+                // 여기서도 역시 changeLiked를 사용하기 위해 맴버 클래스와 인덱스를 같이 넘겨줌
                 Navigator.push(
                   context,
                   MaterialPageRoute(

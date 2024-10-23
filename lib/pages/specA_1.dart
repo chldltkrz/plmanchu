@@ -4,9 +4,11 @@ import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA.dart';
+// URL Launcher 를 사용하기 위해 flutter pub add url_launcher를 실행해주고 import를 추가해줘야한다
 import 'package:url_launcher/url_launcher.dart';
 
 class specA_1 extends StatelessWidget {
+  // 인덱스를 받지 않으면 이후 여기서 changeLiked를 사용할 방법이 없음. 그래서 인덱스를 받아옴
   MemberInfo memberInfo;
   int index;
   specA_1({super.key, required this.memberInfo, required this.index});
@@ -14,6 +16,7 @@ class specA_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 역시 Appbar에서 바로 뒤로 페이지로 이동을 위한 Get.off로 변경
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -27,6 +30,7 @@ class specA_1 extends StatelessWidget {
         title: Text('Detail'),
       ),
       body: Padding(
+        // 이전 specA 페이지에서 했던것 처럼 memberInfo를 받아와서 정보에 접근하여 사용함
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,6 +57,9 @@ class specA_1 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       _buildKeywordBox(memberInfo.MBTI, Colors.blue),
+                      // 여기서 햇갈릴수 있는데, 여기서 하는것은
+                      // hobbies를 return할때 [취미,취미,...] 이런식으로 괄호가 붙어서 나오기 때문에 이것을 없애주기위해 substring을 사용함
+                      // 첫번째 글자를 없애고 마지막 글자는 길이에서 -1을 해줌
                       _buildKeywordBox(
                           memberInfo.hobbies.toString().substring(
                               1, memberInfo.hobbies.toString().length - 1),
@@ -81,6 +88,7 @@ class specA_1 extends StatelessWidget {
             ),
             SizedBox(height: 30), // Add space between sections and buttons
             // Buttons at the bottom
+            
             Center(
               child: Column(
                 mainAxisAlignment:

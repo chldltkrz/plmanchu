@@ -11,10 +11,13 @@ class Mainpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 여기부터 각 Appbar는 뒤로가기가 활성화 되어 있음, 그리고 stacking을 방지하기 위해 Get.off로 변경
+      // Get.off는 현재 페이지를 없애고 이동할 특정 페이지로 이동하는 기능
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
+            // MainPage에서는 IntroPage로 이동
             Get.off(IntroPage()); // 뒤로 가기 기능
           },
         ),
@@ -49,12 +52,19 @@ class Mainpage extends StatelessWidget {
                 crossAxisSpacing: 10, // 그리드 칸 사이 가로 간격
                 mainAxisSpacing: 10, // 그리드 칸 사이 세로 간격
                 children: [
+                  // ... 은 List<Widget>을 맴버별로 펼처서 입력을 넣어주는 역할
                   ...List<Widget>.generate(
+                      // 총 맴버수를 반환하고, 그 인덱스를 받아서 각 맴버의 정보를 가져옴
                       Get.find<Membercontroller>().getMemberLength(), (index) {
+                    // 맴버 정보를 가져오는 코드
                     MemberInfo mI =
                         Get.find<Membercontroller>().getMember(index);
+
+                    // GestureDetector로 감싸서 클릭 이벤트를 추가
                     return GestureDetector(
                         onTap: () {
+                          // 클릭시 specA 페이지로 이동
+                          // 이동할 때 맴버 정보와 인덱스를 같이 넘겨줌 -> 추가 정보를 표시하기 위함
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -64,18 +74,27 @@ class Mainpage extends StatelessWidget {
                                     )),
                           );
                         },
+                        // Stack으로 이미지와 좋아요 아이콘을 겹쳐서 표시
                         child: Stack(children: [
+                          // 1차적으로 큰 틀에 Image를 표시하고
                           Image.asset(mI.image),
+                          // Positioned로 좋아요 아이콘을 겹쳐서 표시
                           Positioned(
+                              // 아래 옵션은 좋아요 아이콘을 이미지의 중앙에 표시하기 위한 옵션
                               bottom: 0,
                               top: 0,
                               left: 0,
                               right: 0,
-                              //Opacity GetBuilder로 감싸기
-                              //Obx -> GetBuilde대신 사용하기 편할수 있음
+
+                              // 여기서 GetBuilder를 사용하여 컨트롤러를 구독하고, 좋아요 여부에 따라 아이콘을 표시
+                              // init와 builder를 설정해줘야 함.
+                              // init에 현재 구독할 컨트롤러를 설정해주고
+                              // builder에는 실제로 상태를 표시할 위젯을 설정해줌
                               child: GetBuilder(
                                 init: Get.find<Membercontroller>(),
                                 builder: (controller) =>
+                                    // 여기서 Ternary Operator로 좋아요가 true일 경우 Opacity에 아이콘을 추가한 아이콘을 표시하고
+                                    // false일 경우 빈 Container를 표시함
                                     controller.getLiked(index)
                                         ? Opacity(
                                             opacity: 0.3,
