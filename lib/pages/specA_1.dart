@@ -12,7 +12,12 @@ class specA_1 extends StatelessWidget {
   // 인덱스를 받지 않으면 이후 여기서 changeLiked를 사용할 방법이 없음. 그래서 인덱스를 받아옴
   MemberInfo memberInfo;
   int index;
-  specA_1({super.key, required this.memberInfo, required this.index});
+
+  specA_1({
+    super.key,
+    required this.memberInfo,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,7 @@ class specA_1 extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: const Color.fromRGBO(238, 238, 238, 1),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Column(
@@ -72,12 +77,15 @@ class specA_1 extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            // Two sections (경력 and 만들고자 하는 앱) will now divide the space
+            // RadarChart 렌더링
             Expanded(
               child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Start from the left
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  _buildSection('나만의 육각형', ''),
+                  // RadarChart를 해당 인덱스에 맞게 렌더링
+                  Center(child: memberInfo.radarChartInfo),
+                  Divider(color: Colors.grey), // Thin gray line
                   _buildSection(
                       '경력',
                       memberInfo.careers.toString().substring(
@@ -134,55 +142,47 @@ class specA_1 extends StatelessWidget {
             SizedBox(height: 30),
             // Add space between sections and buttons
             // Buttons at the bottom
-            Center(
-              child: Column(
-                mainAxisAlignment:
-                    MainAxisAlignment.center, // Center the buttons vertically
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.find<Membercontroller>().changeLike(index);
-                      // get to main page
-                      Get.to(() => Mainpage());
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 100,
-                          vertical: 15), // Increased horizontal padding
-                      backgroundColor: Colors.blue,
-                    ),
-                    child: Text(
-                      'LIKE',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Get.find<Membercontroller>().changeLike(index);
+                    // get to main page
+                    Get.to(() => Mainpage());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: Text(
+                    '좋아요',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 16), // Space between buttons
-                  ElevatedButton(
-                    onPressed: () async {
-                      final url = Uri.parse(memberInfo.blog);
-                      await launchUrl(url);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 100,
-                          vertical: 15), // Increased horizontal padding
-                      backgroundColor: Colors.black,
-                    ),
-                    child: Text(
-                      'BLOG',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    final url = Uri.parse(memberInfo.blog);
+                    await launchUrl(url);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: Text(
+                    '블로그',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(height: 80), // Space between buttons and bottom
           ],

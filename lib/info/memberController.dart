@@ -1,20 +1,31 @@
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberInfo.dart';
+import 'package:plmanchu/pages/radarChart.dart';
 
 // 컨트롤러를 상속받고 여기서 실제 맴버정보를 담은 클래스를 생성하게 된다
 class Membercontroller extends GetxController {
   List<MemberInfo> members = [
     MemberInfo(
-        name: "강민우",
-        MBTI: "ENFP",
-        image: 'lib/assets/images/1.png',
-        hobbies: ["헬스", "위스키"],
-        major: "금융",
-        careers: ["PM", "블록체인"],
-        targetApp: "에어비앤비",
-        introduce: "잘부탁드립니다",
-        radarChart: [1.0, 10.0, 40.0, 90.0, 90.0],
-        blog: "https://matthewkang.tistory.com"),
+      name: "강민우",
+      MBTI: "ENFP",
+      image: 'lib/assets/images/1.png',
+      hobbies: ["헬스", "위스키"],
+      major: "금융",
+      careers: ["PM", "블록체인"],
+      targetApp: "에어비앤비",
+      introduce: "잘부탁드립니다",
+      blog: "https://matthewkang.tistory.com",
+      radarChartInfo: const RadarChart(features: [
+        "운",
+        "코딩",
+        "끈기",
+        "창의성",
+        "분석력",
+        "실행력"
+      ], data: [
+        [50, 0, 50, 50, 50, 50]
+      ], sides: 6),
+    ),
     MemberInfo(
         name: "최이삭",
         MBTI: "INTJ",
@@ -24,8 +35,17 @@ class Membercontroller extends GetxController {
         careers: ["클라우드엔지니어", "k8s개발자"],
         targetApp: "당근마켓",
         introduce: "잘부탁드립니다",
-        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
-        blog: "https://teem0.com"),
+        blog: "https://teem0.com",
+        radarChartInfo: const RadarChart(features: [
+          "운",
+          "코딩",
+          "끈기",
+          "당근력",
+          "분석력",
+          "Linux"
+        ], data: [
+          [70, 60, 100, 100, 50, 70]
+        ], sides: 6)),
     MemberInfo(
         name: "김시은",
         MBTI: "ENTJ",
@@ -35,8 +55,17 @@ class Membercontroller extends GetxController {
         careers: ["반도체 설계 엔지니어"],
         targetApp: "언어교환",
         introduce: "잘부탁드립니다",
-        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
-        blog: "https://scene-inventory.tistory.com"),
+        blog: "https://scene-inventory.tistory.com",
+        radarChartInfo: const RadarChart(features: [
+          "호기심",
+          "코딩에 대한 열정",
+          "끈기",
+          "창의력",
+          "의사소통 능력",
+          "실행력"
+        ], data: [
+          [80, 100, 60, 70, 50, 60]
+        ], sides: 6)),
     MemberInfo(
         name: "김윤서",
         image: 'lib/assets/images/4.png',
@@ -46,8 +75,17 @@ class Membercontroller extends GetxController {
         careers: ["디자인", "운영관리"],
         targetApp: "Skrr",
         introduce: "잘부탁드립니다",
-        radarChart: [80.0, 60.0, 75.0, 90.0, 50.0],
-        blog: "https://www.google.com"),
+        blog: "https://www.google.com",
+        radarChartInfo: const RadarChart(features: [
+          "운",
+          "코딩",
+          "끈기",
+          "창의성",
+          "분석력",
+          "실행력"
+        ], data: [
+          [50, 0, 70, 60, 70, 60]
+        ], sides: 6)),
   ];
 
   // 특정 인덱스의 맴버정보를 가져오는 method

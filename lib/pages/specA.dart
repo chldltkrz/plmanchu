@@ -3,12 +3,18 @@ import 'package:get/get.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA_1.dart';
+import 'package:plmanchu/pages/radarChart.dart';
 
 class specA extends StatelessWidget {
   // 인덱스를 받지 않으면 이후 specA_1페이지에서 changeLiked를 사용할 방법이 없음. 그래서 인덱스를 받아서 넘겨줌
   MemberInfo memberInfo;
   int index;
-  specA({super.key, required this.memberInfo, required this.index});
+
+  specA({
+    super.key,
+    required this.memberInfo,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -91,8 +97,10 @@ class specA extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          specA_1(memberInfo: memberInfo, index: index)),
+                      builder: (context) => specA_1(
+                            memberInfo: memberInfo,
+                            index: index,
+                          )),
                 );
               },
               style: ElevatedButton.styleFrom(
