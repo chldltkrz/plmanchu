@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plmanchu/info/memberInfo.dart';
-import 'package:plmanchu/info/radarController.dart';
 import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA_1.dart';
 import 'package:plmanchu/pages/radarChart.dart';
@@ -9,14 +8,12 @@ import 'package:plmanchu/pages/radarChart.dart';
 class specA extends StatelessWidget {
   MemberInfo memberInfo;
   int index;
-  RadarChart? radarChart;
-  Radarcontroller radarController;
 
-  specA(
-      {super.key,
-      required this.memberInfo,
-      required this.index,
-      required this.radarController});
+  specA({
+    super.key,
+    required this.memberInfo,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -96,10 +93,9 @@ class specA extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => specA_1(
-                          memberInfo: memberInfo,
-                          index: index,
-                          radarChart: radarChart,
-                          radarController: radarController)),
+                            memberInfo: memberInfo,
+                            index: index,
+                          )),
                 );
               },
               style: ElevatedButton.styleFrom(

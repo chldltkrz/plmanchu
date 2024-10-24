@@ -4,31 +4,20 @@ import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
 import 'package:plmanchu/pages/specA.dart';
-import 'package:plmanchu/pages/radarChart.dart'; // RadarChart 임포트
-import 'package:plmanchu/info/radarController.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class specA_1 extends StatelessWidget {
   MemberInfo memberInfo;
-  RadarChart? radarChart;
   int index;
-  Radarcontroller radarController;
 
-  specA_1(
-      {super.key,
-      required this.memberInfo,
-      required this.index,
-      this.radarChart,
-      required this.radarController});
+  specA_1({
+    super.key,
+    required this.memberInfo,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // RadarController에서 특정 인덱스의 데이터 가져오기
-    final radarController = Get.find<Radarcontroller>();
-
-    // radarChart 초기화 (해당 인덱스의 RadarChart 할당)
-    radarChart ??= radarController.radar[index];
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -37,7 +26,6 @@ class specA_1 extends StatelessWidget {
             Get.off(specA(
               memberInfo: memberInfo,
               index: index,
-              radarController: radarController,
             )); // 뒤로 가기 기능
           },
         ),
@@ -88,7 +76,7 @@ class specA_1 extends StatelessWidget {
                 children: [
                   _buildSection('나만의 육각형', ''),
                   // RadarChart를 해당 인덱스에 맞게 렌더링
-                  radarChart ?? SizedBox.shrink(),
+                  Center(child: memberInfo.radarChartInfo),
                   Divider(color: Colors.grey), // Thin gray line
                   _buildSection(
                       '경력',
