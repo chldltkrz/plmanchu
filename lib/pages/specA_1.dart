@@ -85,6 +85,7 @@ class specA_1 extends StatelessWidget {
                   _buildSection('나만의 육각형', ''),
                   // RadarChart를 해당 인덱스에 맞게 렌더링
                   Center(child: memberInfo.radarChartInfo),
+                  SizedBox(height: 30),
                   Divider(color: Colors.grey), // Thin gray line
                   _buildSection(
                       '경력',
