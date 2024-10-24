@@ -158,34 +158,34 @@ class RadarChartPainter extends CustomPainter {
     path.close(); // 마지막 점과 첫 번째 점 연결
     canvas.drawPath(path, outlinePaint); // 외곽선 그리기
 
-    // Ticks 그리기
-    for (int i = 0; i < ticks.length; i++) {
-      double tickRadius = (radius / ticks.length) * (i + 1);
-      Path tickPath = Path();
-      for (int j = 0; j < sides; j++) {
-        double angle = (2 * math.pi * j) / sides;
-        double x = center.dx + tickRadius * math.cos(angle);
-        double y = center.dy + tickRadius * math.sin(angle);
-        if (j == 0) {
-          tickPath.moveTo(x, y);
-        } else {
-          tickPath.lineTo(x, y);
-        }
-      }
-      tickPath.close();
-      canvas.drawPath(tickPath, outlinePaint);
+    // // Ticks 그리기
+    // for (int i = 0; i < ticks.length; i++) {
+    //   double tickRadius = (radius / ticks.length) * (i + 1);
+    //   Path tickPath = Path();
+    //   for (int j = 0; j < sides; j++) {
+    //     double angle = (2 * math.pi * j) / sides;
+    //     double x = center.dx + tickRadius * math.cos(angle);
+    //     double y = center.dy + tickRadius * math.sin(angle);
+    //     if (j == 0) {
+    //       tickPath.moveTo(x, y);
+    //     } else {
+    //       tickPath.lineTo(x, y);
+    //     }
+    //   }
+    //   tickPath.close();
+    //   canvas.drawPath(tickPath, outlinePaint);
 
-      // 눈금 텍스트 표시
-      final textPainter = TextPainter(
-        text: TextSpan(text: '${ticks[i]}', style: ticksTextStyle),
-        textDirection: TextDirection.ltr,
-      );
-      textPainter.layout();
-      textPainter.paint(
-        canvas,
-        Offset(center.dx - textPainter.width - 5, center.dy - tickRadius),
-      );
-    }
+    //   // 눈금 텍스트 표시
+    //   final textPainter = TextPainter(
+    //     text: TextSpan(text: '${ticks[i]}', style: ticksTextStyle),
+    //     textDirection: TextDirection.ltr,
+    //   );
+    //   textPainter.layout();
+    //   textPainter.paint(
+    //     canvas,
+    //     Offset(center.dx - textPainter.width - 5, center.dy - tickRadius),
+    //   );
+    // }
 
     // Features 텍스트 그리기
     for (int i = 0; i < features.length; i++) {
@@ -229,24 +229,24 @@ class RadarChartPainter extends CustomPainter {
         }
 
         // 데이터 값을 텍스트로 표시
-        final dataTextPainter = TextPainter(
-          text: TextSpan(
-            text: '${dataset[j]}',
-            style: TextStyle(color: Colors.black, fontSize: 12),
-          ),
-          textDirection: TextDirection.ltr,
-        );
-        dataTextPainter.layout();
-        dataTextPainter.paint(
-          canvas,
-          Offset(x - dataTextPainter.width / 2, y - dataTextPainter.height / 2),
-        );
+        // final dataTextPainter = TextPainter(
+        //   text: TextSpan(
+        //     text: '${dataset[j]}',
+        //     style: TextStyle(color: Colors.black, fontSize: 12),
+        //   ),
+        //   textDirection: TextDirection.ltr,
+        // );
+        // dataTextPainter.layout();
+        // dataTextPainter.paint(
+        //   canvas,
+        //   Offset(x - dataTextPainter.width / 2, y - dataTextPainter.height / 2),
+        // );
 
-        if (j == 0) {
-          dataPath.moveTo(x, y);
-        } else {
-          dataPath.lineTo(x, y);
-        }
+        // if (j == 0) {
+        //   dataPath.moveTo(x, y);
+        // } else {
+        //   dataPath.lineTo(x, y);
+        // }
       }
       dataPath.close(); // 데이터 경로 닫기
       canvas.drawPath(dataPath, dataPaint); // 데이터 차트 그리기
