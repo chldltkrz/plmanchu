@@ -106,10 +106,6 @@ class Membercontroller extends GetxController {
     return members[index].isLiked;
   }
 
-  List<double> getRadarChart(int index) {
-    return members[index].radarChart;
-  }
-
   // 좋아요 버튼을 누를때 상태를 변화시키는 method
   // 좋아요 누른 다음에 구독자에게 알려주기 위해 update()를 호출
   void changeLike(index) {

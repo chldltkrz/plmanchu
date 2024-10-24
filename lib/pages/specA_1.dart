@@ -119,16 +119,6 @@ class specA_1 extends StatelessWidget {
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Divider(color: Colors.grey),
-                            Container(
-                              width: constraints.maxWidth *
-                                  0.4, // Set the radar chart to fit 80% of the available width
-                              height: constraints.maxWidth *
-                                  0.4, // Match height to width
-                              child: PentagonRadarChart(
-                                values: memberInfo.radarChart,
-                                labels: ['운', '코딩', '디자인', '끈기', '팀워크'],
-                              ),
-                            ),
                           ],
                         );
                       },
