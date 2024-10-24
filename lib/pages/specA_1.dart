@@ -93,38 +93,6 @@ class specA_1 extends StatelessWidget {
                   Divider(color: Colors.grey), // Thin gray line
                   _buildSection('만들고자 하는 앱', memberInfo.targetApp),
                   Divider(color: Colors.grey),
-                  Container(
-                    padding: EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    // Use LayoutBuilder inside the Container to make the chart fit to the size
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "능력치 분석",
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            ),
-                            Divider(color: Colors.grey),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                  Divider(color: Colors.grey), // Thin gray line
                   // Thin gray line
                 ],
               ),
