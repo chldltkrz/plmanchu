@@ -74,7 +74,7 @@ class Membercontroller extends GetxController {
         major: "디자인",
         careers: ["디자인", "운영관리"],
         targetApp: "Skrr",
-        introduce: " 반갑습니다.\n 유익한 시간이 되면 좋겠습니다.\n 잘 부탁드립니다.",
+        introduce: " 반갑습니다. 과정과 결과 모두\n 의미있고 유익한 시간이 되면 좋겠습니다.\n 잘 부탁드립니다.",
         blog: "https://velog.io/@integralk",
         radarChartInfo: const RadarChart(features: [
           "기획력",
