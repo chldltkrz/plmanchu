@@ -18,7 +18,7 @@ class Mainpage extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             // MainPage에서는 IntroPage로 이동
-            Get.off(IntroPage()); // 뒤로 가기 기능
+            Get.offAll(IntroPage()); // 뒤로 가기 기능
           },
         ),
         title: Text('메인 페이지'),

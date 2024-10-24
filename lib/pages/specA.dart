@@ -24,7 +24,7 @@ class specA extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
-              Get.off(Mainpage()); // 뒤로 가기 기능
+              Get.offAll(Mainpage()); // 뒤로 가기 기능
             },
           ),
           title: Text(memberInfo.name)),

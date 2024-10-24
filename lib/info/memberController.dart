@@ -77,14 +77,14 @@ class Membercontroller extends GetxController {
         introduce: "잘부탁드립니다",
         blog: "https://www.google.com",
         radarChartInfo: const RadarChart(features: [
-          "운",
-          "코딩",
+          "기획력",
+          "기존 코딩 경험",
           "끈기",
           "창의성",
-          "분석력",
+          "경청&소통",
           "실행력"
         ], data: [
-          [50, 0, 70, 60, 70, 60]
+          [70, 0, 80, 60, 70, 70]
         ], sides: 6)),
   ];
 
