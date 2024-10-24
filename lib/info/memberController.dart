@@ -74,8 +74,8 @@ class Membercontroller extends GetxController {
         major: "디자인",
         careers: ["디자인", "운영관리"],
         targetApp: "Skrr",
-        introduce: "잘부탁드립니다",
-        blog: "https://www.google.com",
+        introduce: " 반갑습니다.\n 유익한 시간이 되면 좋겠습니다.\n 잘 부탁드립니다.",
+        blog: "https://velog.io/@integralk",
         radarChartInfo: const RadarChart(features: [
           "기획력",
           "기존 코딩 경험",
