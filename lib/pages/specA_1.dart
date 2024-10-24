@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:plmanchu/info/memberController.dart';
 import 'package:plmanchu/info/memberInfo.dart';
 import 'package:plmanchu/pages/mainPage.dart';
-import 'package:plmanchu/pages/radarChart.dart';
 import 'package:plmanchu/pages/specA.dart';
 // URL Launcher 를 사용하기 위해 flutter pub add url_launcher를 실행해주고 import를 추가해줘야한다
 import 'package:url_launcher/url_launcher.dart';
@@ -35,7 +34,7 @@ class specA_1 extends StatelessWidget {
         ),
         title: Text('Detail'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         // 이전 specA 페이지에서 했던것 처럼 memberInfo를 받아와서 정보에 접근하여 사용함
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -78,12 +77,12 @@ class specA_1 extends StatelessWidget {
             ),
             SizedBox(height: 20),
             // RadarChart 렌더링
-            Expanded(
+            Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildSection('나만의 육각형', ''),
-                  // RadarChart를 해당 인덱스에 맞게 렌더링
+                  // RadarChart를 해당 인덱스에 맞게 렌더a링
                   Center(child: memberInfo.radarChartInfo),
                   SizedBox(height: 30),
                   Divider(color: Colors.grey), // Thin gray line
